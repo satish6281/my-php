@@ -16,14 +16,9 @@
    if(! $retval ) {
       die('Could not create database: ' . mysql_error());
    }
-   
    echo "Database dockerdb created successfully ";
 
-   $sql = 'use dockerdb';
-      if (!mysql_query($conn, $sql))
-     {
-      die('Error: ' . mysql_error());
-     }
+   mysql_select_db( 'dockerdb' );
    echo "Switched to Database dockerdb successfully";
 
    $sql = 'CREATE TABLE dockertable(fname VARCHAR(20) NOT NULL, lname VARCHAR(20) NOT NULL)';   
