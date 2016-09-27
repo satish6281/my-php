@@ -10,7 +10,7 @@
    
    echo 'Connected successfully';
    
-   $sql = 'CREATE Database c';
+   $sql = 'CREATE Database dockerdb';
    $retval = mysql_query( $sql, $conn );
    
    if(! $retval ) {
