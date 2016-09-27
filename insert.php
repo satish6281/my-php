@@ -20,11 +20,17 @@
    echo "Switched to Database dockerdb successfully";
 
    $sql = 'CREATE TABLE dockertable(fname VARCHAR(20) NOT NULL, lname VARCHAR(20) NOT NULL)';
-   echo "Post Condition command";
-      $retval = mysql_query( $sql, $conn );
-   
+
+      $retval = mysql_query( $sql, $conn );  
    if(! $retval ) {
       die('Could not create table: ' . mysql_error());
    }
     echo "Table got Created successfully"; 
+   $sql = "INSERT INTO dockertable (fname, lname)VALUES ('$_POST[fname]','$_POST[lname]')";
+   $retval = mysql_query( $sql, $conn );
+   
+   if(! $retval ) {
+      die('Could not insert values into table : ' . mysql_error());
+   }
+    echo "Values inserted successfully";
 ?>
