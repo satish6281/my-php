@@ -22,10 +22,11 @@
    $sql = 'use dockerdb';
    echo "Switched to Database dockerdb successfully";
 
-   $sql = 'CREATE TABLE dockertable(fname VARCHAR(20) NOT NULL, lname  VARCHAR(20) NOT NULL)';   
+   $sql = 'CREATE TABLE dockertable(fname VARCHAR(20) NOT NULL, lname VARCHAR(20) NOT NULL)';   
    echo "Table got Created successfully";
 
    $sql = "INSERT INTO dockertable (fname, lname)VALUES ('$_POST[fname]','$_POST[lname]')";
+   
     mysql_select_db( 'dockerdb' );
 
     if (!mysql_query($conn, $sql))
