@@ -10,7 +10,7 @@
    
    echo 'Connected successfully';
    
-   $sql = 'CREATE Database dockerdb';
+   $sql = 'CREATE Database c';
    $retval = mysql_query( $sql, $conn );
    
    if(! $retval ) {
@@ -19,10 +19,11 @@
    
    echo "Database dockerdb created successfully\n";
 
-      $sql = 'CREATE TABLE dockertable( fname VARCHAR(20) NOT NULL, lname  VARCHAR(20) NOT NULL)';   
-
+   $sql = 'use dockerdb';
+   $sql = 'CREATE TABLE dockertable(fname VARCHAR(20) NOT NULL, lname  VARCHAR(20) NOT NULL)';   
    $sql = "INSERT INTO dockertable (fname, lname)VALUES ('$_POST[fname]','$_POST[lname]')";
     mysql_select_db( 'dockerdb' );
+
     if (!mysql_query($conn, $sql))
      {
       die('Error: ' . mysql_error());
