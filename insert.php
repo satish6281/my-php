@@ -18,12 +18,13 @@
    echo "Database dockerdb created successfully ";
    mysql_select_db( 'dockerdb' );
    echo "Switched to Database dockerdb successfully";
+
    $sql = 'CREATE TABLE dockertable(fname VARCHAR(20) NOT NULL, lname VARCHAR(20) NOT NULL)';
    echo "Post Condition command";
-      if (!mysql_query($conn, $sql))
-     {
-      echo "Inside error";
-      die('Error: ' . mysql_error());
-     }
+      $retval = mysql_query( $sql, $conn );
+   
+   if(! $retval ) {
+      die('Could not create table: ' . mysql_error());
+   }
     echo "Table got Created successfully"; 
-    ?>
+?>
