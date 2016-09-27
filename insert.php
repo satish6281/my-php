@@ -17,10 +17,17 @@
       die('Could not create database: ' . mysql_error());
    }
    
-   echo "Database dockerdb created successfully\n";
+   echo "Database dockerdb created successfully ";
 
    $sql = 'use dockerdb';
+   echo "Switched to Database dockerdb successfully";
+
+   mysql_select_db( 'dockerdb' );
+   echo "Switched Database dockerdb"
+
    $sql = 'CREATE TABLE dockertable(fname VARCHAR(20) NOT NULL, lname  VARCHAR(20) NOT NULL)';   
+   echo "Table got Created successfully";
+
    $sql = "INSERT INTO dockertable (fname, lname)VALUES ('$_POST[fname]','$_POST[lname]')";
     mysql_select_db( 'dockerdb' );
 
