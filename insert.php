@@ -19,15 +19,13 @@
    
    echo "Database dockerdb created successfully\n";
 
-   mysql_select_db( 'dockerdb' );
-
       $sql = 'CREATE TABLE dockertable( '.
       'fname VARCHAR(20) NOT NULL, '.
       'lname  VARCHAR(20) NOT NULL, '.
       ')';   
 
    $sql = "INSERT INTO dockertable (fname, lname)VALUES ('$_POST[fname]','$_POST[lname]')";
- 
+    mysql_select_db( 'dockerdb' );
     if (!mysql_query($conn, $sql))
      {
       die('Error: ' . mysql_error());
