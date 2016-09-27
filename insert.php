@@ -26,7 +26,7 @@
       'lname  VARCHAR(20) NOT NULL, '.
       ')';   
 
-  $sql = "INSERT INTO dockertable (fname, lname)VALUES ('$_POST[fname]','$_POST[lname]')";
+   $sql = "INSERT INTO dockertable (fname, lname)VALUES ('$_POST[fname]','$_POST[lname]')";
  
     if (!mysql_query($conn, $sql))
      {
