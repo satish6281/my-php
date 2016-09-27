@@ -20,7 +20,6 @@
    echo "Database dockerdb created successfully ";
 
    $sql = 'use dockerdb';
-    mysql_select_db( 'dockerdb' );
       if (!mysql_query($conn, $sql))
      {
       die('Error: ' . mysql_error());
